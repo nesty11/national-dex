@@ -45,3 +45,15 @@ let pokemonList = [
         types: ["water"]
     }
 ];
+
+//Loop to display all items on pokemonList
+
+for (let i = 0; pokemonList.length; i++) {
+    if (pokemonList[i].height < 5 && pokemonList[i].height > 3) {
+        document.write(pokemonList.name + ": Height-" + pokemonList[i].height + "' " + " That's an average Pokemon. ")
+    } else if (pokemonList[i].height < 5) {
+        document.write(pokemonList[i].name + ": Height-"+  pokemonList[i].height+ "' "  + "Wow! That's a big Pokemon! ")
+    } else {
+        document.write(pokemonList[i].name + ": Height-"+ pokemonList[i].height+ "' "  + " Wow! That's a small pokemon! ")
+    }
+}
