@@ -48,7 +48,7 @@ let pokemonList = [
 
 //Loop to display all items on pokemonList
 
-for (let i = 0; pokemonList.length; i++) {
+for (let i = 0; i < pokemonList.length; i++) {
     if (pokemonList[i].height < 5 && pokemonList[i].height > 3) {
         document.write("<br>" + pokemonList.name + ": Height-" + pokemonList[i].height + "' " + " That's an average Pokemon. ")
     } else if (pokemonList[i].height < 5) {
