@@ -1,54 +1,89 @@
-let pokemonList = [
-    {
+let pokemonRepository = (function () {
+    let pokemonList = [{
         name: 'Bulbasaur',
         height: 2,
-        types: ["grass", "poison"]
+        types: ["grass", "poison"],
     },
     {
         name: 'Ivysaur',
         height: 3,
-        types: ["grass", "poison"]
+        types: ["grass", "poison"],
     },
     {
         name: 'Venasaur',
         height: 6,
-        types: ["grass", "poison"]
+        types: ["grass", "poison"],
     },
     {
         name: 'Charmander',
         height: 2,
-        types: ["fire"]
+        types: ["fire"],
     },
     {
         name: 'Charmeleon',
         height: 3,
-        types: ["fire"]
+        types: ["fire"],
     },
     {
         name: 'Charizard',
         height: 5,
-        types: ["fire", "flying"]
+        types: ["fire", "flying"],
     },
     {
         name: 'Squirtle',
         height: 1,
-        types: ["water"]
+        types: ["water"],
     },
     {
         name: 'Wartortle',
         height: 3,
-        types: ["water"]
+        types: ["water"],
     },
     {
         name: 'Blastoise',
         height: 5,
-        types: ["water"]
+        types: ["water"],
     }
-];
+    ]
+
+
+    function getAll() {
+        return pokemonList;
+    }
+    function add(pokemon) {
+        pokemonList.push(pokemon);
+    }
+    return {
+        getAll: getAll,
+        add: add
+    };
+})();
+
+pokemonRepository.add({
+    name: 'Gengar',
+    height: 4,
+    types: ['ghost', 'poison'],
+})
+
+pokemonRepository.getAll().forEach(function (pokemon) {
+    let pokemonStats = pokemon.name + " (Height: " + pokemon.height + ")";
+    document.write(pokemonStats)
+    if (pokemon.height < 5 && pokemon.height > 3) {
+        document.write("That's an average Pokémon" + "<br>")
+    } else if (pokemon.height > 5) {
+        document.write("Wow! That's a big Pokemon! " + "<br>")
+    } else {
+        document.write(" Wow! That's a small pokemon! " + "<br>")
+    }
+
+}
+
+)
+
 
 //Loop to display all items on pokemonList
 
-for (let i = 0; i < pokemonList.length; i++) {
+/* for (let i = 0; i < pokemonList.length; i++) {
     if (pokemonList[i].height < 5 && pokemonList[i].height > 3) {
         document.write("<br>" + pokemonList.name + ": Height-" + pokemonList[i].height + "' " + " That's an average Pokemon. ")
     } else if (pokemonList[i].height < 5) {
@@ -56,4 +91,4 @@ for (let i = 0; i < pokemonList.length; i++) {
     } else {
         document.write("<br>" + pokemonList[i].name + ": Height-"+ pokemonList[i].height+ "' "  + " Wow! That's a small pokemon! ")
     }
-}
+} */
