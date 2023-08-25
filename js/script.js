@@ -1,50 +1,6 @@
 let pokemonRepository = (function () {
-    let pokemonList = [{
-        name: 'Bulbasaur',
-        height: 2,
-        types: ["grass", "poison"],
-    },
-    {
-        name: 'Ivysaur',
-        height: 3,
-        types: ["grass", "poison"],
-    },
-    {
-        name: 'Venasaur',
-        height: 6,
-        types: ["grass", "poison"],
-    },
-    {
-        name: 'Charmander',
-        height: 2,
-        types: ["fire"],
-    },
-    {
-        name: 'Charmeleon',
-        height: 3,
-        types: ["fire"],
-    },
-    {
-        name: 'Charizard',
-        height: 5,
-        types: ["fire", "flying"],
-    },
-    {
-        name: 'Squirtle',
-        height: 1,
-        types: ["water"],
-    },
-    {
-        name: 'Wartortle',
-        height: 3,
-        types: ["water"],
-    },
-    {
-        name: 'Blastoise',
-        height: 5,
-        types: ["water"],
-    }
-    ]
+    let pokemonList = [];
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=1010';
 
 
 
@@ -68,27 +24,74 @@ let pokemonRepository = (function () {
         button.classList.add("button-class");
         listPokemon.appendChild(button);
         pokemonList.appendChild(listPokemon);
-        button.addEventListener('click', function () {
-            showDetails(pokemon)
+        button.addEventListener('click', function() {
+            showDetails(pokemon);
+        });
+    }
+
+    function loadList() {
+        return fetch(apiUrl).then(function (response) {
+            return response.json();
+        }).then(function (json) {
+            json.results.forEach(function (item) {
+                let pokemon = {
+                    name: item.name,
+                    detailsUrl: item.url
+                };
+                add(pokemon);
+                console.log(pokemon);
+            });
+        }).catch(function (e) {
+            console.error(e);
         })
     }
+
+    function loadDetails(item) {
+        let url = item.detailsUrl;
+        return fetch(url).then(function (response) {
+            return response.json();
+        }).then(function (details) {
+            item.imageUrl = details.sprites.front_default;
+            item.imageUrlShiny = details.sprites.front_shiny;
+            item.height = details.height;
+            item.weight = details.weight;
+            item.types = details.types;
+            item.ability = details.ability;
+        }).catch(function (e) {
+            console.error(e);
+        })
+    }
+
+    function showDetails(item) {
+        loadDetails(item).then(function () {
+            console.log(item);
+        });
+    }
+
 
     return {
         getAll: getAll,
         add: add,
         addListItem: addListItem,
+        loadList: loadList,
+        loadDetails: loadDetails,
         showDetails: showDetails
     };
 })();
 
-pokemonRepository.add({
+/* pokemonRepository.add({
     name: 'Gengar',
     height: 4,
     types: ['ghost', 'poison'],
-})
+}) */
 
-pokemonRepository.getAll().forEach(function (pokemon) {
-    pokemonRepository.addListItem(pokemon);
+console.log(pokemonRepository.getAll());
+
+
+pokemonRepository.loadList().then(function () {
+    pokemonRepository.getAll().forEach(function (pokemon) {
+        pokemonRepository.addListItem(pokemon);
+    });
 });
 
 
