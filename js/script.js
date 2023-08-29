@@ -81,18 +81,18 @@ let pokemonRepository = (function () {
             contentElement.innerText = text;
 
             let imageElement = document.createElement('img');
-                imageElement.classList.add('modal-img');
-                imageElement.src = pokemon.imageUrl
+            imageElement.classList.add('modal-img');
+            imageElement.src = pokemon.imageUrl
 
-                let imageElementShiny = document.createElement('img');
-                imageElementShiny.classList.add('modal-img');
-                imageElement.src = pokemon.imageUrlShiny
+            let imageElementShiny = document.createElement('img');
+            imageElementShiny.classList.add('modal-img');
+            imageElement.src = pokemon.imageUrlShiny
 
-                let heightElement = document.createElement('p');
-                heightElement.innerText = 'HEIGHT:  ' + pokemon.height;
+            let heightElement = document.createElement('p');
+            heightElement.innerText = 'HEIGHT:  ' + pokemon.height;
 
-                let typesElement = document.createElement('p');
-                typesElement.innerText = 'TYPES: ' + pokemon.types;
+            let typesElement = document.createElement('p');
+            typesElement.innerText = 'TYPES: ' + pokemon.types;
 
             modal.appendChild(closeButtonElement);
             modal.appendChild(titleElement);
@@ -102,11 +102,11 @@ let pokemonRepository = (function () {
         }
 
         let dialogPromiseReject; //This cn be set later, by showDialog
-        
+
         function hideModal() {
             modalContainer.classList.remove('is-visible');
 
-            if (dialogPromiseReject){
+            if (dialogPromiseReject) {
                 dialogPromiseReject();
                 dialogPromiseReject = null;
             }
