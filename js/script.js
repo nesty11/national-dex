@@ -59,9 +59,58 @@ let pokemonRepository = (function () {
     }
 
     function showDetails(item) {
-        loadDetails(item).then(function () {
-            console.log(item);
-        });
+        let modalContainer = document.querySelector('#modal-container');
+
+        function showModal(title, text) {
+
+            //Clear all existing modal content
+            modalContainer.innerHTML = '';
+            let modal = document.createElement('div');
+            modal.classList.add('modal');
+
+            //Add the new modal content
+            let closeButtonElement = document.createElement('button');
+            closeButtonElement.classList.add('modal-close');
+            closeButtonElement.innerText = 'Close';
+            closeButtonElement.addEventListener('click', hideModal);
+
+            let titleElement = document.createElement('h1');
+            titleElement.innerText = title;
+
+            let contentElement = document.createElement('p');
+            contentElement.innerText = text;
+
+            let imageElement = document.createElement('img');
+                imageElement.classList.add('modal-img');
+                imageElement.src = pokemon.imageUrl
+
+                let imageElementShiny = document.createElement('img');
+                imageElementShiny.classList.add('modal-img');
+                imageElement.src = pokemon.imageUrlShiny
+
+                let heightElement = document.createElement('p');
+                heightElement.innerText = 'HEIGHT:  ' + pokemon.height;
+
+                let typesElement = document.createElement('p');
+                typesElement.innerText = 'TYPES: ' + pokemon.types;
+
+            modal.appendChild(closeButtonElement);
+            modal.appendChild(titleElement);
+            modal.appendChild(contentElement);
+            modalContainer.appendChild(modal);
+            modalContainer.classList.add('is-visible');
+        }
+
+        let dialogPromiseReject; //This cn be set later, by showDialog
+        
+        function hideModal() {
+            modalContainer.classList.remove('is-visible');
+
+            if (dialogPromiseReject){
+                dialogPromiseReject();
+                dialogPromiseReject = null;
+            }
+        }
     }
 
 
