@@ -26,7 +26,7 @@ let modalContainer = document.querySelector('#modal-container');
             modalContainer.classList.add('is-visible');
         }
 
-        let dialogPromiseReject; //This cn be set later, by showDialog
+        let dialogPromiseReject; //This can be set later, by showDialog
         
         function hideModal() {
             modalContainer.classList.remove('is-visible');
