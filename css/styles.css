@@ -5,7 +5,6 @@ Golden Yellow: #FFDE00
  */
 #pikachu{
 width: 150px;
-align-self: last baseline;
 }
 
 .modal {
@@ -86,6 +85,7 @@ a:active {
 
 .pokelogo{
   height: 500px;
+  display: inline;
 }
 
 .btn-custom {
@@ -108,5 +108,5 @@ a:active {
 }
 
 .pokedex-button:focus {
-  outline: none; /* Remove focus outline */
+  outline: none;
 }
