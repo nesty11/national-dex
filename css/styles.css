@@ -3,7 +3,10 @@ University Red: #CC0000
 Cerulean Blue #2A52BE or Absolute Zero: #0049BA
 Golden Yellow: #FFDE00
  */
-
+#pikachu{
+width: 150px;
+align-self: last baseline;
+}
 
 .modal {
   background-color: #fff;
@@ -11,7 +14,6 @@ Golden Yellow: #FFDE00
   padding: 20px;
   text-align: center;
   width: 80%;
-  max-width: 600px;
   margin: 0 auto;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
@@ -25,26 +27,6 @@ Golden Yellow: #FFDE00
 .modal img {
   max-width: 100%;
   height: auto;
-}
-
-.modal p {
-  font-size: 18px;
-  margin: 10px 0;
-  text-transform: capitalize;
-}
-
-.modal-close {
-  background-color: #ff0000;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  margin-top: 20px;
-  font-size: 16px;
-}
-
-.modal-close:hover {
-  background-color: #990000;
 }
 
 #modal-container {
@@ -64,36 +46,67 @@ Golden Yellow: #FFDE00
 }
 
 .pokemon-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
   list-style: none;
-  padding-top: 20px;
-}
-
-.col-3 {
-  width: calc(25% - 1rem);
-  margin-bottom: 1rem;
-}
-
-.button-class {
   font-size: 18px;
-  padding: 10px 20px;
+  padding: 10px;
   margin: 10px 0;
   width: 100%;
-  text-align: center; /* Center the text within buttons */
-  border: none; /* Remove button border */
-  border-radius: 0; /* Remove button border-radius */
+  text-align: center;
+  border: none; 
+  border-radius: 0; 
+  color: white;
 }
 
 .nav-item{
   list-style: none;
 }
 
+.nav-link{
+color: white;
+}
+
+a:visited {
+  /* visited link */
+  color:#FFDE00;
+}
+
+a:hover,
+a:focus {
+  /*Hover underlining when hovering over a link */
+  text-decoration: none;
+}
+
+a:active {
+  /* selected link*/
+  color:  #CC0000;
+}
+
 .pokelogo{
   height: 500px;
 }
 
-#pikachu{
-  align-self: bottom;
+.btn-custom {
+  background-color: #CC0000; 
+}
+.pokedex-button {
+  background-color: #CC0000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pokedex-button:hover {
+  background-color: #FFDE00;
+  color: #2A52BE;
+}
+
+.pokedex-button:focus {
+  outline: none; /* Remove focus outline */
 }

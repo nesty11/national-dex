@@ -27,7 +27,8 @@ let pokemonRepository = (function () {
         button.setAttribute('data-toggle', 'modal');
         button.setAttribute('data-target', '#modal-container');
         button.textContent = capitalizedName;
-        button.classList.add('btn', 'btn-primary', 'mr-2');
+        button.classList.add('pokedex-button');
+
 
 
         listPokemon.appendChild(button);
@@ -36,8 +37,6 @@ let pokemonRepository = (function () {
             showDetails(pokemon);
         });
     }
-
-
 
     function loadList() {
         return fetch(apiUrl).then(function (response) {
@@ -124,7 +123,6 @@ let pokemonRepository = (function () {
 })();
 
 console.log(pokemonRepository.getAll());
-
 
 pokemonRepository.loadList().then(function () {
     pokemonRepository.getAll().forEach(function (pokemon) {
