@@ -1,3 +1,10 @@
+/* Pokedex Colors:
+University Red: #CC0000
+Cerulean Blue #2A52BE or Absolute Zero: #0049BA
+Golden Yellow: #FFDE00
+ */
+
+
 .modal {
   background-color: #fff;
   border: 2px solid #000;
@@ -12,6 +19,7 @@
 .modal h1 {
   font-size: 24px;
   margin: 10px 0;
+  text-transform: capitalize;
 }
 
 .modal img {
@@ -22,6 +30,7 @@
 .modal p {
   font-size: 18px;
   margin: 10px 0;
+  text-transform: capitalize;
 }
 
 .modal-close {
@@ -54,21 +63,37 @@
   display: flex;
 }
 
-/* Remove bullets from an unordered list (<ul>) */
-ul {
-  list-style: none;
-}
-
 .pokemon-list {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px; /* Add padding for spacing */
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding-top: 20px;
+}
+
+.col-3 {
+  width: calc(25% - 1rem);
+  margin-bottom: 1rem;
 }
 
 .button-class {
-  font-size: 18px; /* Increase button text size */
-  padding: 10px 10px; /* Increase button padding for larger clickable area */
-  margin: 10px 0; /* Add margin between buttons for spacing */
+  font-size: 18px;
+  padding: 10px 20px;
+  margin: 10px 0;
+  width: 100%;
+  text-align: center; /* Center the text within buttons */
+  border: none; /* Remove button border */
+  border-radius: 0; /* Remove button border-radius */
 }
 
+.nav-item{
+  list-style: none;
+}
+
+.pokelogo{
+  height: 500px;
+}
+
+#pikachu{
+  align-self: bottom;
+}
