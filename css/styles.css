@@ -3,8 +3,8 @@ University Red: #CC0000
 Cerulean Blue #2A52BE or Absolute Zero: #0049BA
 Golden Yellow: #FFDE00
  */
-#pikachu{
-width: 150px;
+#pikachu {
+  width: 150px;
 }
 
 .modal {
@@ -46,53 +46,64 @@ width: 150px;
 
 .pokemon-list {
   display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
+  grid-template-columns: 1fr; /* Initially, 1 column for mobile screens */
+  grid-gap: 20px;
   list-style: none;
   font-size: 18px;
   padding: 10px;
   margin: 10px 0;
   width: 100%;
   text-align: center;
-  border: none; 
-  border-radius: 0; 
+  border: none;
+  border-radius: 0;
   color: white;
 }
 
-.nav-item{
+/* Add media queries for tablet and larger screens */
+@media (min-width: 768px) {
+  .pokemon-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+  }
+}
+
+@media (min-width: 992px) {
+  .pokemon-list {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for larger screens */
+  }
+}
+
+.navbar-nav .nav-item {
   list-style: none;
 }
 
-.nav-link{
-color: white;
+.navbar-nav .nav-item .nav-link {
+  color: white;
 }
 
-a:visited {
-  /* visited link */
-  color:#FFDE00;
+.navbar-nav .nav-item .nav-link:visited {
+  color: #ffde00;
 }
 
-a:hover,
-a:focus {
-  /*Hover underlining when hovering over a link */
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-item .nav-link:focus {
   text-decoration: none;
 }
 
-a:active {
-  /* selected link*/
-  color:  #CC0000;
+.navbar-nav .nav-item .nav-link:active {
+  color: #cc0000;
 }
 
-.pokelogo{
+
+.pokelogo {
   height: 500px;
   display: inline;
 }
 
 .btn-custom {
-  background-color: #CC0000; 
+  background-color: #cc0000;
 }
 .pokedex-button {
-  background-color: #CC0000;
+  background-color: #cc0000;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -103,8 +114,8 @@ a:active {
 }
 
 .pokedex-button:hover {
-  background-color: #FFDE00;
-  color: #2A52BE;
+  background-color: #ffde00;
+  color: #2a52be;
 }
 
 .pokedex-button:focus {
