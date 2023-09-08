@@ -3,9 +3,6 @@ University Red: #CC0000
 Cerulean Blue #2A52BE or Absolute Zero: #0049BA
 Golden Yellow: #FFDE00
  */
-#pikachu {
-  width: 150px;
-}
 
 .modal {
   background-color: #fff;
@@ -89,8 +86,6 @@ Golden Yellow: #FFDE00
     justify-content: center;
   }
 }
-
-
 
 .navbar-nav .nav-item {
   list-style: none;
