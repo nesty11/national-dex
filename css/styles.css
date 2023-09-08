@@ -72,6 +72,26 @@ Golden Yellow: #FFDE00
   }
 }
 
+/* Make sure the pokelogo fits inside the navbar on small screens */
+@media (max-width: 767px) {
+  #pokelogo {
+    max-width: 100%; /* Scale down to fit the navbar */
+    height: auto;
+    padding: 10px; /* Add padding to prevent overlap */
+  }
+}
+
+/* Ensure the pokelogo doesn't overflow the navbar on small screens */
+@media (max-width: 767px) {
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+
 .navbar-nav .nav-item {
   list-style: none;
 }
@@ -94,8 +114,8 @@ Golden Yellow: #FFDE00
 }
 
 .pokelogo {
-  height: 500px;
-  display: inline;
+  height: auto;
+  max-width: 100%;
 }
 
 .btn-custom {
