@@ -46,7 +46,6 @@ let pokemonRepository = (function () {
             detailsUrl: item.url,
           };
           add(pokemon);
-          console.log(pokemon);
         });
       })
       .catch(function (e) {
@@ -130,8 +129,6 @@ let pokemonRepository = (function () {
     showDetails: showDetails,
   };
 })();
-
-console.log(pokemonRepository.getAll());
 
 pokemonRepository.loadList().then(function () {
   pokemonRepository.getAll().forEach(function (pokemon) {
